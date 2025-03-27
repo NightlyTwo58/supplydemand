@@ -125,4 +125,7 @@ module SupplyDemandGraph = struct
       let dwl = 0.5 *. (eq_qty -. new_qty) *. (floor -. eq_price) in
 
       { cs = new_cs; ps = new_ps; shortage = eq_qty -. new_qty; dwl }
+
+  (*ax = by + c*)
+  let x_on_a_line xval line : float = ((line.a *. xval) -. line.c) /. line.b
 end

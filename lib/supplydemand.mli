@@ -1,4 +1,6 @@
 module SupplyDemandGraph : sig
+  (* type point = { x : float; y : float; } *)
+
   type line = {
     a : float;
     b : float;
@@ -28,8 +30,11 @@ module SupplyDemandGraph : sig
   val consumer_surplus : graph -> float
   val producer_surplus : graph -> float
 
-  (*first float represents new CS, second float represents new PS, third
-    represents DWL*)
   val price_ceiling : graph -> float -> changes
+  (**[price_ceiling]first float represents new CS, second float represents new
+     PS, third represents DWL*)
+
   val price_floor : graph -> float -> changes
+  (**[x_on_a_line] given a x-coordinate, returns the point that has this x-coordinate on the graph*)
+  val x_on_a_line : float -> line -> float * float
 end
